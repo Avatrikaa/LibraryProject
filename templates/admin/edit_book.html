@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Edit Book: {{ book.title }}</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_title" class="form-label">Title</label>
+                {{ form.title }}
+            </div>
+            <div class="mb-3">
+                <label for="id_authors" class="form-label">Authors</label>
+                {{ form.authors }}
+            </div>
+            <div class="mb-3">
+                <label for="id_genre" class="form-label">Genre</label>
+                {{ form.genre }}
+            </div>
+            <div class="mb-3">
+                <label for="id_publication_date" class="form-label">Publication Date</label>
+                {{ form.publication_date }}
+            </div>
+            <div class="mb-3">
+                <label for="id_quantity_in_stock" class="form-label">Quantity in Stock</label>
+                {{ form.quantity_in_stock }}
+            </div>
+            <button type="submit" class="btn btn-success">Save</button>
+            <a href="{% url 'admin-book-list' %}" class="btn btn-secondary ms-2">Cancel</a>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

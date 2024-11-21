@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Add New Book</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="mb-3">
+                <label for="authors" class="form-label">Authors</label>
+                <input type="text" class="form-control" id="authors" name="authors" placeholder="Comma-separated authors" required>
+            </div>
+            <div class="mb-3">
+                <label for="genre" class="form-label">Genre</label>
+                <input type="text" class="form-control" id="genre" name="genre" required>
+            </div>
+            <div class="mb-3">
+                <label for="publication_date" class="form-label">Publication Date</label>
+                <input type="date" class="form-control" id="publication_date" name="publication_date" required>
+            </div>
+            <div class="mb-3">
+                <label for="quantity_in_stock" class="form-label">Quantity in Stock</label>
+                <input type="number" class="form-control" id="quantity_in_stock" name="quantity_in_stock" min="0" required>
+            </div>
+            <button type="submit" class="btn btn-success">Add Book</button>
+            <a href="{% url 'admin-book-list' %}" class="btn btn-secondary ms-2">Cancel</a>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
